@@ -5,7 +5,7 @@ export default function Login() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-  const history= useHistory();
+  let history= useHistory();
 
     function handleSubmit(event) {
         event.preventDefault();
