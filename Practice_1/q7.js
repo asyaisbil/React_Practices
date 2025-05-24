@@ -50,42 +50,42 @@ export default function App() {
 
 import { useState } from "react";
 
-
 export default function App() {
+  const [sayac, setSayac] = useState(0);
 
-    const [sayac, setSayac] = useState(0);
+  const artirici = () => {
+    setSayac(sayac + 1);
+  };
+  const azaltici = () => {
+    setSayac(sayac - 1);
+  };
+  const reset = () => {
+    setSayac(0);
+  };
 
-    const artirici = () => {
-        setSayac(sayac + 1);
-     };
-     const azaltici = () => {
-        setSayac(sayac - 1);
-     };
-     const reset = () => {
-        setSayac(0);
-     };
-   
-     const stil = {
-       fontSize: '1.5em',
-       marginBottom: '0.3em',
-       color: sayac % 2 === 0 ? "royalblue" : "crimson", /*'blue'*/
-     };
-   
-     return (
-       <div className="widget-counter container">
-         <h2>Sayaç</h2>
-         <div id="sayici" style={stil}>Sayı: {sayac} {sayac % 2 === 0 ? "çift" : "tek"} sayıdır</div>
-         <div>
-           <button id="artirici" onClick={artirici}>
-             Artırıcı
-           </button>
-           <button id="decrement" onClick={azaltici}>
-             Azaltıcı
-           </button>
-           <button id="resetCount" onClick={reset}>
-             Reset
-           </button>
-         </div>
-       </div>
-     );
-   }
+  const stil = {
+    fontSize: "1.5em",
+    marginBottom: "0.3em",
+    color: sayac % 2 === 0 ? "royalblue" : "crimson" /*'blue'*/,
+  };
+
+  return (
+    <div className="widget-counter container">
+      <h2>Sayaç</h2>
+      <div id="sayici" style={stil}>
+        Sayı: {sayac} {sayac % 2 === 0 ? "çift" : "tek"} sayıdır
+      </div>
+      <div>
+        <button id="artirici" onClick={artirici}>
+          Artırıcı
+        </button>
+        <button id="decrement" onClick={azaltici}>
+          Azaltıcı
+        </button>
+        <button id="resetCount" onClick={reset}>
+          Reset
+        </button>
+      </div>
+    </div>
+  );
+}

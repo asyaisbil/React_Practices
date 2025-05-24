@@ -34,25 +34,24 @@ export default function App() {
 import { useState } from "react";
 
 export default function App() {
-
   const [isCompleted, setIsCompleted] = useState(true);
 
-    const toggleCompletion = () => {
-      setIsCompleted(!isCompleted);
-   };
-   
-   return (
-     <div className={`course-item ${"completed"}`}>
-       <h3>Workintech Full Stack Programı</h3>
-       <div className="status">
-         <span>{isCompleted ? "✅ Tamamlandı" : "📝 Devam Ediyor"}</span>
-         <button
-           onClick={toggleCompletion}
-           className={isCompleted ? "btn-completed" : "btn-pending"}
-         >{!isCompleted ? "Tamamla" : "Geri Al"}
-         </button>
-       </div>
-     </div>
-   );
- }
- 
+  const toggleCompletion = () => {
+    setIsCompleted(!isCompleted);
+  };
+
+  return (
+    <div className={`course-item ${"completed"}`}>
+      <h3>Workintech Full Stack Programı</h3>
+      <div className="status">
+        <span>{isCompleted ? "✅ Tamamlandı" : "📝 Devam Ediyor"}</span>
+        <button
+          onClick={toggleCompletion}
+          className={isCompleted ? "btn-completed" : "btn-pending"}
+        >
+          {!isCompleted ? "Tamamla" : "Geri Al"}
+        </button>
+      </div>
+    </div>
+  );
+}

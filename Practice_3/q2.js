@@ -18,23 +18,24 @@ export default function Liste(){
 }
 */
 
-import {useState} from 'react';
-import Item from './Item.js';
+import { useState } from "react";
+import Item from "./Item.js";
 
+export default function Liste() {
+  const [accounts, setAccounts] = useState([
+    { name: "Emre", role: "admin" },
+    { name: "Fatih", role: "super-user" },
+    { name: "Emir", role: "admin" },
+    { name: "Harun", role: "user" },
+  ]);
 
-export default function Liste(){
- const [accounts, setAccounts] =useState([
-   { name: "Emre", role: "admin"}, { name: "Fatih", role: "super-user"}, { name: "Emir", role: "admin"}, { name: "Harun", role: "user"}
- ])
+  const admins = accounts.filter((i) => i.role === "admin");
 
-const admins = accounts.filter((i) => i.role ==="admin");
-
-
- return (<ul>
-    {admins.map((item, index) => (
-        <Item key = {index} user = {item} />
- ))}
- </ul>)
+  return (
+    <ul>
+      {admins.map((item, index) => (
+        <Item key={index} user={item} />
+      ))}
+    </ul>
+  );
 }
-
-

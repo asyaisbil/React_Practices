@@ -1,4 +1,3 @@
-
 /* Aşağıdaki React uygulamasında coin isimli bir state tanımlayın. 
 - Başlangıç değeri 0 olsun. 
 - Aşağıdaki component yapısında ekranda gösterin. 
@@ -15,24 +14,22 @@ export default function App() {
 }
 */
 
-
-import { useState } from "react"
+import { useState } from "react";
 
 export default function App() {
+  const [coin, setCoin] = useState(0);
+  const increase = () => {
+    setCoin(coin + 1);
+  };
+  const decrease = () => {
+    setCoin(coin - 1);
+  };
 
-    const [coin, setCoin] = useState(0);
-    const increase = () => {
-        setCoin(coin + 1);
-    }
-    const decrease = () => {
-        setCoin(coin - 1);
-    }
-
-    return (
-        <div className="display">
-            <p>{coin}</p>
-            <button onClick= {increase}>Artır</button>
-            <button onClick= {decrease}>Azalt</button>
-        </div>
-    )
-  }
+  return (
+    <div className="display">
+      <p>{coin}</p>
+      <button onClick={increase}>Artır</button>
+      <button onClick={decrease}>Azalt</button>
+    </div>
+  );
+}
