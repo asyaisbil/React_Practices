@@ -16,8 +16,12 @@ export default function App() {
 
   const onSubmit = (data) => console.log("Kupon Kodu:", data);
 
-  const kuponKontrol = () => {
-    
+  const kuponKontrol = (value) => {
+    if (value !== "PIZZA20" && value !== "FREEDELIVERY") {
+      return "Geçersiz kupon kodu.";
+    } else {
+    return true;
+    }
   };
 
   return (
@@ -27,7 +31,9 @@ export default function App() {
         <input
           type="text"
           id="kupon"
-          {...register("kupon")}
+          {...register("kupon", {
+            validate: kuponKontrol
+          })}
         />
         {errors.kupon && <p>{errors.kupon.message}</p>}
       </div>
