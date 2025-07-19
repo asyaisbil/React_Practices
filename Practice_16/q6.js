@@ -2,13 +2,13 @@
 */
 
 import { useState } from "react";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 
 function CreateCourse() {
  const [courseName, setCourseName] = useState("");
 
-
+  const queryClient = useQueryClient(); 
 
 
  const createCourseMutation = useMutation({
@@ -19,7 +19,8 @@ function CreateCourse() {
      return response.data;
    },
    onSuccess: () => {
-      setCourseName("");
+      //setCourseName("");
+      queryClient.invalidateQueries({queryKey: ["courses"]})
    },
  });
 
